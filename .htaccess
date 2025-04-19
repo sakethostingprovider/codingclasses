@@ -1,0 +1,12 @@
+RewriteEngine On
+RewriteBase /
+
+# Handle API requests
+RewriteRule ^api/(.*)$ api/index.php [QSA,L]
+
+# Serve static files directly
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Serve index.html for all other requests
+RewriteRule ^ index.html [L] 
